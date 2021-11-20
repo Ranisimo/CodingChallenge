@@ -8,15 +8,15 @@ class Observer {
     }
 };
 
-class Employee extends Observer {
+export class Employee extends Observer {
     constructor(name, role){
         super(name);
-        this.role = role;
+        this._role = role;
     }
 
-    update() {
-        super.update();
-        console.log("Updated");
+    update(data) {
+        const employeeData = [this._name, this._role, data]
+        employeeData.join(", ");
+        console.log(employeeData);
     }
 }
-export default Observer;
