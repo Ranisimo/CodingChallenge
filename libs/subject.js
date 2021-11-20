@@ -12,16 +12,14 @@ class Subject {
         this.observers.push(o);
     }
 
-    notifyAllObservers(){
-        Observer.update()
+    notifyAllObservers(data){
+        this.observers.forEach(observer => observer.update(data));
     }
 };
 
-class Machine extends Subject {
+export class Machine extends Subject {
     constructor(state, name){
         super(state);
         this._name = name;
     }
 };
-
-export default Subject;
