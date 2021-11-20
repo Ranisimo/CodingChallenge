@@ -16,6 +16,7 @@ class Employee extends Observer {
 
     update() {
         super.update();
+        console.log("Updated");
     }
 }
 export default Observer;
