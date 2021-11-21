@@ -4,7 +4,7 @@ class Observer {
     }
 
     update(){
-        console.log("Updated");
+        console.log("Subscribed observer updated");
     }
 };
 
@@ -14,9 +14,8 @@ export class Employee extends Observer {
         this._role = role;
     }
 
-    update(data) {
-        const employeeData = [this._name, this._role, data]
+    update(subjectName, subjectState) {
+        const employeeData = [this._name, this._role, subjectName, subjectState]
         employeeData.join(", ");
-        console.log(employeeData);
     }
 }
