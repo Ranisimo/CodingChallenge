@@ -5,15 +5,15 @@ class Subject {
     }
 
     setState(s) {
-        this.state = s;
+        this._state = s;
     }
 
     attachObserver(o) {
         this.observers.push(o);
     }
 
-    notifyAllObservers(data){
-        this.observers.forEach(observer => observer.update(data));
+    notifyAllObservers(subjectName, subjectState){
+        this.observers.forEach(observer => observer.update(subjectName, subjectState));
     }
 };
 
