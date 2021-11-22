@@ -4,16 +4,17 @@ class Subject {
         this.observers = [];
     }
 
-    setState(s) {
+    setState(s) {   //change object state
         this._state = s;
+        this.notifyAllObservers();
     }
 
-    attachObserver(o) {
+    attachObserver(o) {   //subscribe method
         this.observers.push(o);
     }
 
-    notifyAllObservers(subjectName, subjectState){
-        this.observers.forEach(observer => observer.update(subjectName, subjectState));
+    notifyAllObservers(){   //notify method
+        this.observers.forEach(observer => observer.update());
     }
 };
 
@@ -21,5 +22,9 @@ export class Machine extends Subject {
     constructor(state, name){
         super(state);
         this._name = name;
+    }
+
+    notifyAllObservers(){   //notify method
+        this.observers.forEach(observer => observer.update(this._name, this._state));
     }
 };
