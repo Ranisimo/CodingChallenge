@@ -17,5 +17,6 @@ export class Employee extends Observer {
     update(subjectName, subjectState) {
         const employeeData = [this._name, this._role, subjectName, subjectState]
         employeeData.join(", ");
+        console.log(employeeData);
     }
 }
